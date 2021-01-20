@@ -35,26 +35,22 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends ./wkhtmltox.deb \
   && rm -rf /var/lib/apt/lists/* wkhtmltox.deb
 
-# install latest postgresql-client
-# RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main' > /etc/apt/sources.list.d/pgdg.list \
-#   && GNUPGHOME="$(mktemp -d)" \
-#   && export GNUPGHOME \
-#   && repokey='B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8' \
-#   && gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "${repokey}" \
-#   && gpg --batch --armor --export "${repokey}" > /etc/apt/trusted.gpg.d/pgdg.gpg.asc \
-#   && gpgconf --kill all \
-#   && rm -rf "$GNUPGHOME" \
-#   && apt-get update  \
-#   && apt-get install --no-install-recommends -y postgresql-client \
-#   && rm -f /etc/apt/sources.list.d/pgdg.list \
-#   && rm -rf /var/lib/apt/lists/*
+#install latest postgresql-client
+RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main' > /etc/apt/sources.list.d/pgdg.list \
+  && GNUPGHOME="$(mktemp -d)" \
+  && export GNUPGHOME \
+  && repokey='B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8' \
+  && gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "${repokey}" \
+  && gpg --batch --armor --export "${repokey}" > /etc/apt/trusted.gpg.d/pgdg.gpg.asc \
+  && gpgconf --kill all \
+  && rm -rf "$GNUPGHOME" \
+  && apt-get update  \
+  && apt-get install --no-install-recommends -y postgresql-client \
+  && rm -f /etc/apt/sources.list.d/pgdg.list \
+  && rm -rf /var/lib/apt/lists/*
 
 # Install rtlcss (on Debian buster)
 RUN npm install -g rtlcss
-
-# Install rexray efs plugin for docker volumes mount:
-RUN apt-get update \
-  && apt-get -y install git binutils
 
 # Install Odoo
 ENV ODOO_VERSION 13.0
@@ -68,16 +64,13 @@ RUN curl -o odoo.deb -sSL http://nightly.odoo.com/${ODOO_VERSION}/nightly/deb/od
 
 # Copy entrypoint script and Odoo configuration file
 COPY ./entrypoint.sh /
-COPY ./efs.sh /
-COPY ./docker-compose.yml /
-# COPY ./mnt/config/odoo.conf /etc/odoo/
+COPY ./odoo.conf /etc/odoo/
 
 # Set permissions and Mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
-RUN mkdir -p /mnt/extra-addons \
-  && chown -R odoo /mnt/extra-addons 
-  # && chown odoo /etc/odoo.conf
-
-#/var/lib/odoo : filestore  
+RUN chown odoo /etc/odoo/odoo.conf \
+  && mkdir -p /mnt/extra-addons \
+  && chown -R odoo /mnt/extra-addons \
+  && chmod +x /etc/odoo/odoo.conf
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons", "/etc/odoo"]
 #https://www.odoo.com/es_ES/forum/ayuda-1/install-addons-on-docker-version-of-odoo-13-175798
 
@@ -85,16 +78,17 @@ VOLUME ["/var/lib/odoo", "/mnt/extra-addons", "/etc/odoo"]
 EXPOSE 8069 8071 8072
 
 # Set the default config file
-ENV ODOO_RC /etc/odoo.conf
+ENV ODOO_RC /etc/odoo/odoo.conf
 
 #Descomentar cuando pueda arreglarlo:
 COPY wait-for-psql.py /usr/local/bin/wait-for-psql.py
 
 #custom addons
-# COPY ./custom-addons /opt/addons
+#COPY ./custom-addons /opt/addons
 
 # Set default user when running the container
 USER odoo
 
-ENTRYPOINT ["/entrypoint.sh"]
+#ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["bash","/entrypoint.sh"]
 CMD ["odoo"]
