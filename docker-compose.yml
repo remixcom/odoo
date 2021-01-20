@@ -2,7 +2,7 @@ version: '3.7'
 services:
   odoo:
     container_name: odoo-aurqa
-    image: 563045088021.dkr.ecr.us-east-1.amazonaws.com/odooaurqa
+    image: 563045088021.dkr.ecr.us-east-1.amazonaws.com/odoo
     restart: always
     volumes:
         - ./addons-extra:/mnt/extra-addons
@@ -12,6 +12,7 @@ services:
         - "8069:8069"
         - "8071:8071"
         - "8072:8072"
+        - "2049:2049"
 volumes:
   filestore:
     external: true
