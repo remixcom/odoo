@@ -76,7 +76,7 @@ RUN chown odoo /etc/odoo/odoo.conf \
   && mkdir -p /mnt/extra-addons \
   && chown -R odoo /mnt/extra-addons \
   && chmod +x /etc/odoo/odoo.conf
-VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
+VOLUME ["/var/lib/odoo", "/mnt/extra-addons", "/var/log/odoo"]
 #https://www.odoo.com/es_ES/forum/ayuda-1/install-addons-on-docker-version-of-odoo-13-175798
 
 # Expose Odoo services
