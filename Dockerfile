@@ -35,6 +35,10 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends ./wkhtmltox.deb \
   && rm -rf /var/lib/apt/lists/* wkhtmltox.deb
 
+# NODE 12 INSTALLATION:
+# RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - \
+# &&  apt-get install -y nodejs
+
 #install latest postgresql-client
 RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main' > /etc/apt/sources.list.d/pgdg.list \
   && GNUPGHOME="$(mktemp -d)" \
