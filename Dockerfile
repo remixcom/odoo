@@ -51,7 +51,7 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main' > /etc/
 
 # Install rtlcss (on Debian buster) - install nfs-utils
 RUN npm install -g rtlcss \
-  && apt install nfs-common
+  && apt install nfs-client -y
 
 # Install Odoo
 ENV ODOO_VERSION 13.0
