@@ -17,6 +17,7 @@ RUN apt-get update \
   libssl-dev \
   node-less \
   npm \
+  nfs-common \
   python3-num2words \
   python3-pip \
   python3-phonenumbers \
@@ -53,7 +54,7 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main' > /etc/
   && rm -f /etc/apt/sources.list.d/pgdg.list \
   && rm -rf /var/lib/apt/lists/*
 
-# Install rtlcss (on Debian buster) - install nfs-utils
+# Install rtlcss (on Debian buster) - install nfs-utils or amazon-efs-utils client
 RUN npm install -g rtlcss 
 #RUN apt-get install amazon-efs-utils -y
 
