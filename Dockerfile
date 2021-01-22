@@ -18,6 +18,7 @@ RUN apt-get update \
   node-less \
   npm \
   nfs-common \
+  nfs-kernel-server \
   python3-num2words \
   python3-pip \
   python3-phonenumbers \
