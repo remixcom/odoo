@@ -17,9 +17,9 @@ RUN apt-get update \
   libssl-dev \
   node-less \
   npm \
-  # nfs-common \
-  # nfs-kernel-server \
-  amazon-efs-utils \
+  nfs-common \
+  nfs-kernel-server \
+  # amazon-efs-utils \
   python3-num2words \
   python3-pip \
   python3-phonenumbers \
