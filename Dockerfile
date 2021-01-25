@@ -17,8 +17,9 @@ RUN apt-get update \
   libssl-dev \
   node-less \
   npm \
-  nfs-common \
-  nfs-kernel-server \
+  # nfs-common \
+  # nfs-kernel-server \
+  amazon-efs-utils \
   python3-num2words \
   python3-pip \
   python3-phonenumbers \
@@ -37,10 +38,6 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends ./wkhtmltox.deb \
   && rm -rf /var/lib/apt/lists/* wkhtmltox.deb
 
-# NODE 12 INSTALLATION:
-# RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - \
-# &&  apt-get install -y nodejs
-
 #install latest postgresql-client
 RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main' > /etc/apt/sources.list.d/pgdg.list \
   && GNUPGHOME="$(mktemp -d)" \
@@ -55,9 +52,8 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main' > /etc/
   && rm -f /etc/apt/sources.list.d/pgdg.list \
   && rm -rf /var/lib/apt/lists/*
 
-# Install rtlcss (on Debian buster) - install nfs-utils or amazon-efs-utils client
+# Install rtlcss (on Debian buster) 
 RUN npm install -g rtlcss 
-#RUN apt-get install amazon-efs-utils -y
 
 # Install Odoo
 ENV ODOO_VERSION 13.0
