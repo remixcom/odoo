@@ -19,7 +19,6 @@ RUN apt-get update \
   npm \
   nfs-common \
   nfs-kernel-server \
-  # amazon-efs-utils \
   python3-num2words \
   python3-pip \
   python3-phonenumbers \
