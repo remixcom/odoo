@@ -3,18 +3,18 @@ services:
   odoo:
     container_name: odoo
     image: 563045088021.dkr.ecr.us-east-1.amazonaws.com/odoo
-    restart: always
+#    restart: always
     volumes:
         - ./addons-extra:/mnt/extra-addons
-        - odooconfig:/etc/odoo
+        - odoologs:/var/log/odoo
         - filestore:/var/lib/odoo
     ports:
         - "8069:8069"
-        - "8071:8071"
-        - "8072:8072"
+#        - "8071:8071"
+#        - "8072:8072"
         - "2049:2049"
 volumes:
   filestore:
     external: true
-  odooconfig:
+  odoologs:
     external: true
