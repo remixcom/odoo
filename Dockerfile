@@ -82,7 +82,7 @@ EXPOSE 8069 8072 2049
 # Set the default config file
 ENV ODOO_RC /etc/odoo/odoo.conf
 
-# COPY wait-for-psql.py /usr/local/bin/wait-for-psql.py
+COPY wait-for-psql.py /usr/local/bin/wait-for-psql.py
 
 #custom addons
 #COPY ./custom-addons /opt/addons
