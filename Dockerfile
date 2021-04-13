@@ -75,7 +75,7 @@ VOLUME ["/var/lib/odoo", "/mnt/extra-addons", "/etc/odoo"]
 #https://www.odoo.com/es_ES/forum/ayuda-1/install-addons-on-docker-version-of-odoo-13-175798
 
 # Expose Odoo services
-EXPOSE 8069 8071 8072 2049
+EXPOSE 5000 5001
 
 # Set the default config file
 ENV ODOO_RC /etc/odoo/odoo.conf
