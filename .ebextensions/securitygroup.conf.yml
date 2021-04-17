@@ -1,7 +1,0 @@
-option_settings:
-  - namespace: aws:autoscaling:launchconfiguration
-    option_name: SecurityGroups
-    value: cluster-odoo-ifei-sg
-  - namespace: aws:autoscaling:launchconfiguration
-    option_name: SecurityGroups
-    value: ssh

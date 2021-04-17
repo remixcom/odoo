@@ -71,11 +71,11 @@ RUN chown odoo /etc/odoo/odoo.conf \
   && mkdir -p /mnt/extra-addons \
   && chown -R odoo /mnt/extra-addons \
   && chmod +x /etc/odoo/odoo.conf
-VOLUME ["/var/lib/odoo", "/mnt/extra-addons", "/etc/odoo"]
+VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
 #https://www.odoo.com/es_ES/forum/ayuda-1/install-addons-on-docker-version-of-odoo-13-175798
 
 # Expose Odoo services
-EXPOSE 5000 5001
+EXPOSE 8069 2049
 
 # Set the default config file
 ENV ODOO_RC /etc/odoo/odoo.conf
