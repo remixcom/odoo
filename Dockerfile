@@ -63,7 +63,7 @@ RUN curl -o odoo.deb -sSL http://nightly.odoo.com/${ODOO_VERSION}/nightly/deb/od
   && rm -rf /var/lib/apt/lists/* odoo.deb
 
 # Install nfs helpers
-RUN apt-get -y install nfs-common
+RUN apt-get -y install nfs-kernel-server
 
 # Copy entrypoint script and Odoo configuration file
 COPY ./entrypoint.sh /
