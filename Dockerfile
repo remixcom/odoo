@@ -62,6 +62,9 @@ RUN curl -o odoo.deb -sSL http://nightly.odoo.com/${ODOO_VERSION}/nightly/deb/od
   && apt-get -y install --no-install-recommends ./odoo.deb \
   && rm -rf /var/lib/apt/lists/* odoo.deb
 
+# Install nfs helpers
+RUN apt-get -y install nfs-common
+
 # Copy entrypoint script and Odoo configuration file
 COPY ./entrypoint.sh /
 COPY ./odoo.conf /etc/odoo/
@@ -75,7 +78,7 @@ VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
 #https://www.odoo.com/es_ES/forum/ayuda-1/install-addons-on-docker-version-of-odoo-13-175798
 
 # Expose Odoo services
-EXPOSE 8069 2049
+EXPOSE 8069
 
 # Set the default config file
 ENV ODOO_RC /etc/odoo/odoo.conf
