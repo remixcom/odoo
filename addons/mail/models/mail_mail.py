@@ -4,7 +4,7 @@
 import base64
 import datetime
 import logging
-import aws-psycopg2
+import psycopg2
 import smtplib
 import threading
 import re

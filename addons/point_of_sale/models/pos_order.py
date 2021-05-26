@@ -4,7 +4,7 @@ import logging
 from datetime import timedelta
 from functools import partial
 
-import aws-psycopg2
+import psycopg2
 import pytz
 
 from odoo import api, fields, models, tools, _

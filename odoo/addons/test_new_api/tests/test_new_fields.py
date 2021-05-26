@@ -6,7 +6,7 @@ from collections import OrderedDict
 from datetime import date, datetime, time
 import io
 from PIL import Image
-import aws-psycopg2
+import psycopg2
 
 from odoo import fields
 from odoo.exceptions import AccessError, UserError, ValidationError

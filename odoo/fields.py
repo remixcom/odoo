@@ -18,7 +18,7 @@ except ImportError:
     #pylint: disable=bad-python3-import
     from xmlrpclib import MAXINT
 
-import aws-psycopg2
+import psycopg2
 
 from .tools import float_repr, float_round, frozendict, html_sanitize, human_size, pg_varchar, \
     ustr, OrderedSet, pycompat, sql, date_utils, unique, IterableGenerator, image_process, merge_sequences

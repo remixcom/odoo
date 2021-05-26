@@ -21,7 +21,7 @@ from odoo.tools.pycompat import to_text
 from odoo.http import request
 from odoo.modules.module import get_resource_path
 from .qweb import escape
-import aws-psycopg2
+import psycopg2
 from odoo.tools import func, misc
 
 import logging

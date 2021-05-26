@@ -26,7 +26,7 @@ evented = False
 if len(sys.argv) > 1 and sys.argv[1] == 'gevent':
     sys.argv.remove('gevent')
     import gevent.monkey
-    import aws-psycopg2
+    import psycopg2
     from gevent.socket import wait_read, wait_write
     gevent.monkey.patch_all()
 

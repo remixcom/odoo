@@ -5,7 +5,7 @@ from ast import literal_eval
 import functools
 import itertools
 import logging
-import aws-psycopg2
+import psycopg2
 import datetime
 
 from odoo import api, fields, models

@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import logging
-import aws-psycopg2
+import psycopg2
 
 from odoo import api, fields, models, registry, SUPERUSER_ID, _
 

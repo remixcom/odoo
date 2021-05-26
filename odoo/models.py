@@ -40,7 +40,7 @@ from operator import attrgetter, itemgetter
 
 import babel.dates
 import dateutil.relativedelta
-import aws-psycopg2, psycopg2.extensions
+import psycopg2, psycopg2.extensions
 from lxml import etree
 from lxml.builder import E
 from psycopg2.extensions import AsIs

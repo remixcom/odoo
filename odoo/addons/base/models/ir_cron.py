@@ -3,7 +3,7 @@
 import logging
 import threading
 import time
-import aws-psycopg2
+import psycopg2
 import pytz
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta

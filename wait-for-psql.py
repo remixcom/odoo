@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import argparse
-import aws-psycopg2
+import psycopg2
 import sys
 import time
 

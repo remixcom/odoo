@@ -4,7 +4,7 @@
 # pylint: disable=sql-injection
 
 import logging
-import aws-psycopg2
+import psycopg2
 
 _schema = logging.getLogger('odoo.schema')
 

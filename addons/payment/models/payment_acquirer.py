@@ -6,7 +6,7 @@ import logging
 from datetime import datetime
 from dateutil import relativedelta
 import pprint
-import aws-psycopg2
+import psycopg2
 
 from odoo import api, exceptions, fields, models, _, SUPERUSER_ID
 from odoo.tools import consteq, float_round, image_process, ustr

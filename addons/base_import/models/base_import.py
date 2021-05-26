@@ -12,7 +12,7 @@ import datetime
 import io
 import itertools
 import logging
-import aws-psycopg2
+import psycopg2
 import operator
 import os
 import re

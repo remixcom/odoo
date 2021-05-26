@@ -15,7 +15,7 @@ from functools import wraps
 from contextlib import closing
 from decorator import decorator
 
-import aws-psycopg2
+import psycopg2
 
 import odoo
 from odoo import SUPERUSER_ID

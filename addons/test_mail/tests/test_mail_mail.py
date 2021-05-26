@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import itertools
-import aws-psycopg2
+import psycopg2
 
 from odoo import api
 from odoo.addons.base.models.ir_mail_server import MailDeliveryException

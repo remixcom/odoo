@@ -21,7 +21,7 @@ from docutils.core import publish_string
 from docutils.transforms import Transform, writer_aux
 from docutils.writers.html4css1 import Writer
 import lxml.html
-import aws-psycopg2
+import psycopg2
 
 import odoo
 from odoo import api, fields, models, modules, tools, _

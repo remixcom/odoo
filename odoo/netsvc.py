@@ -11,7 +11,7 @@ import sys
 import threading
 import time
 
-import aws-psycopg2
+import psycopg2
 
 import odoo
 from . import sql_db
