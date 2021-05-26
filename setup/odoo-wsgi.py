@@ -13,6 +13,7 @@
 #   $ gunicorn odoo:service.wsgi_server.application -c openerp-wsgi.py
 
 import odoo
+import os
 
 #----------------------------------------------------------
 # Common
@@ -26,14 +27,15 @@ conf = odoo.tools.config
 # Path to the OpenERP Addons repository (comma-separated for
 # multiple locations)
 
-conf['addons_path'] = '../../addons/trunk,../../web/trunk/addons'
+conf['addons_path'] = 'addons'
 
 # Optional database config if not using local socket
-#conf['db_name'] = 'mycompany'
-#conf['db_host'] = 'localhost'
-#conf['db_user'] = 'foo'
-#conf['db_port'] = 5432
-#conf['db_password'] = 'secret'
+if 'RDS_HOSTNAME' in os.environ:
+    conf['db_host'] = os.environ['RDS_HOSTNAME']
+    conf['db_port'] = os.environ['RDS_PORT'] # 5432
+    # conf['dbfilter'] = '^odoo11-.*$'
+    conf['db_user'] = os.environ['RDS_USERNAME']
+    conf['db_password'] = os.environ['RDS_PASSWORD']
 
 #----------------------------------------------------------
 # Generic WSGI handlers application
@@ -48,6 +50,6 @@ odoo.service.server.load_server_wide_modules()
 # Standard OpenERP XML-RPC port is 8069
 bind = '127.0.0.1:8069'
 pidfile = '.gunicorn.pid'
-workers = 4
+workers = 6
 timeout = 240
 max_requests = 2000
