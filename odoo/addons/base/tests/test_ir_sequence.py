@@ -3,8 +3,8 @@
 
 from contextlib import contextmanager
 
-import psycopg2
-import psycopg2.errorcodes
+import aws-psycopg2
+import aws-psycopg2.errorcodes
 
 import odoo
 from odoo.tests import common

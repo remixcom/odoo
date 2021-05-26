@@ -3,7 +3,7 @@
 
 import base64
 import logging
-import psycopg2
+import aws-psycopg2
 import werkzeug
 
 from werkzeug import url_encode

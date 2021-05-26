@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-import psycopg2
+import aws-psycopg2
 
 from odoo.models import BaseModel
 from odoo.tests.common import TransactionCase

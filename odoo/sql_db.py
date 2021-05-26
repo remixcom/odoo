@@ -15,9 +15,9 @@ import logging
 import time
 import uuid
 
-import psycopg2
-import psycopg2.extras
-import psycopg2.extensions
+import aws-psycopg2
+import aws-psycopg2.extras
+import aws-psycopg2.extensions
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT, ISOLATION_LEVEL_READ_COMMITTED, ISOLATION_LEVEL_REPEATABLE_READ
 from psycopg2.pool import PoolError
 from werkzeug import urls

@@ -5,7 +5,7 @@ import hashlib
 import hmac
 import logging
 from unicodedata import normalize
-import psycopg2
+import aws-psycopg2
 import werkzeug
 
 from odoo import http, _

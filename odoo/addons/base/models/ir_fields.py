@@ -4,7 +4,7 @@
 import functools
 import itertools
 
-import psycopg2
+import aws-psycopg2
 import pytz
 
 from odoo import api, fields, models, _

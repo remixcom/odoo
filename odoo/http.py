@@ -27,7 +27,7 @@ from zlib import adler32
 import babel.core
 from datetime import datetime, date
 import passlib.utils
-import psycopg2
+import aws-psycopg2
 import json
 import werkzeug.contrib.sessions
 import werkzeug.datastructures
