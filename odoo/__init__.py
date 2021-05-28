@@ -54,7 +54,7 @@ if len(sys.argv) > 1 and sys.argv[1] == 'gevent':
 # e.g. database update or cache invalidation. Each process has also
 # its own copy of the data structure and we don't need to care about
 # locks between threads.
-multi_process = False
+multi_process = True
 
 #----------------------------------------------------------
 # libc UTC hack
