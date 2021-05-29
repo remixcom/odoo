@@ -28,10 +28,10 @@ conf = odoo.tools.config
 # Path to the OpenERP Addons repository (comma-separated for
 # multiple locations)
 
-# conf['addons_path'] = '../../addons/trunk,../../web/trunk/addons'
+conf['addons_path'] = '../../addons/trunk,../../web/trunk/addons'
 
-conf['addons_path'] = os.environ['ODOO_ADDONS']
-ODOO_ADDONS = '/opt/odoobeanstalk/odoo/addons'
+# conf['addons_path'] = os.environ['ODOO_ADDONS']
+# ODOO_ADDONS = '/opt/odoobeanstalk/odoo/addons'
 
 # Optional database config if not using local socket
 # conf['db_name'] = 'mycompany'
@@ -61,6 +61,7 @@ max_requests = 2000
 admin_passwd = 'StradivariuS'
 xmlrpc_port = 8069
 logfile = '/var/log/odoobeanstalk'
+addons_path = '/opt/odoobeanstalk/odoo/addons'
 proxy_mode = True
 xmlrpc_interface = '127.0.0.1'
 netrpc_interface = '127.0.0.1'
