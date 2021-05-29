@@ -12,7 +12,9 @@
 # Then the following command should run:
 #   $ gunicorn odoo:service.wsgi_server.application -c openerp-wsgi.py
 
+import os
 import odoo
+import multiprocessing
 
 #----------------------------------------------------------
 # Common
@@ -26,11 +28,14 @@ conf = odoo.tools.config
 # Path to the OpenERP Addons repository (comma-separated for
 # multiple locations)
 
-conf['addons_path'] = '../../addons/trunk,../../web/trunk/addons'
+# conf['addons_path'] = '../../addons/trunk,../../web/trunk/addons'
+
+conf['addons_path'] = os.environ['ODOO_ADDONS']
+ODOO_ADDONS = '/opt/odoobeanstalk/odoo/addons'
 
 # Optional database config if not using local socket
 # conf['db_name'] = 'mycompany'
-conf['db_host'] = 'odoo-prod.cspn35gmswug.us-east-1.rds.amazonaws.com'
+conf['db_host'] = 'odoo-rds.cspn35gmswug.us-east-1.rds.amazonaws.com'
 conf['db_user'] = 'odoobeanstalk'
 conf['db_port'] = 5432
 conf['db_password'] = 'StradivariuS'
@@ -48,8 +53,8 @@ odoo.service.server.load_server_wide_modules()
 # Standard OpenERP XML-RPC port is 8069
 bind = '127.0.0.1:8069'
 pidfile = '.gunicorn.pid'
-workers = 6
 # worker_class = 'sync'
+workers = multiprocessing.cpu_count() * 2 + 1
 worker_connections = 8000
 timeout = 240
 max_requests = 2000
