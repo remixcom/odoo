@@ -50,16 +50,15 @@ odoo.service.server.load_server_wide_modules()
 # Gunicorn
 #----------------------------------------------------------
 # Standard OpenERP XML-RPC port is 8069
-HOST = '0.0.0.0'
-bind = os.environ['HOST'] + ':' + os.environ['PORT']
-pidfile = '.gunicorn.pid'
+HOST = '127.0.0.1'
 ODOO_ADDONS = '/opt/odoobeanstalk/odoo/addons'
 RDS_HOSTNAME = 'odoo-prod.cspn35gmswug.us-east-1.rds.amazonaws.com'
 RDS_PORT = '5432'
 RDS_USERNAME = 'odoobeanstalk'
 RDS_PASSWORD = 'StradivariuS'
 PORT = '8069'
-
+bind = os.environ['HOST'] + ':' + os.environ['PORT']
+pidfile = '.gunicorn.pid'
 workers = 6
 timeout = 720
 max_requests = 8000
