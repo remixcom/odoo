@@ -1,0 +1,1 @@
+gunicorn -c config/gunicorn.config.py odoo.service.wsgi_server
