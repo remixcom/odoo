@@ -24,8 +24,14 @@ import werkzeug.wrappers
 import werkzeug.serving
 import werkzeug.contrib.fixers
 
+import os
 import odoo
 from odoo.tools import config
+conf = odoo.tools.config
+conf['db_host'] = 'odoo-rds.cspn35gmswug.us-east-1.rds.amazonaws.com'
+conf['db_user'] = 'odoobeanstalk'
+conf['db_port'] = 5432
+conf['db_password'] = 'StradivariuS'
 
 _logger = logging.getLogger(__name__)
 
