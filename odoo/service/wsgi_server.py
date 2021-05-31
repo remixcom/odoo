@@ -26,14 +26,12 @@ import werkzeug.contrib.fixers
 
 import os
 import odoo
-from odoo.tools import config
 conf = odoo.tools.config
 conf['db_host'] = 'odoo-rds.cspn35gmswug.us-east-1.rds.amazonaws.com'
 conf['db_user'] = 'odoobeanstalk'
 conf['db_port'] = 5432
 conf['db_password'] = 'StradivariuS'
 conf['longpolling_port'] = 8070
-workers = 6
 timeout = 720
 max_requests = 8000
 #############################
@@ -171,7 +169,7 @@ def application(environ, start_response):
     #        we're ignoring the user configuration, and that means we won't
     #        support the standardised Forwarded header once werkzeug supports
     #        it
-    if config['proxy_mode'] and 'HTTP_X_FORWARDED_HOST' in environ:
+    if conf['proxy_mode'] and 'HTTP_X_FORWARDED_HOST' in environ:
         return ProxyFix(application_unproxied)(environ, start_response)
     else:
         return application_unproxied(environ, start_response)
