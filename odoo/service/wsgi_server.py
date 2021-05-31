@@ -24,7 +24,6 @@ import werkzeug.wrappers
 import werkzeug.serving
 import werkzeug.contrib.fixers
 
-import os
 import odoo
 from odoo.tools import config
 config['db_host'] = 'odoo-rds.cspn35gmswug.us-east-1.rds.amazonaws.com'
