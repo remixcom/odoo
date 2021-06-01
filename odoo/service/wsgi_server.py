@@ -33,6 +33,22 @@ config['db_user'] = 'odoobeanstalk'
 config['db_password'] = 'StradivariuS'
 config['xmlrpc_port'] = 8069
 config['longpolling_port'] = 8070
+config['admin_passwd'] = 'StradivariuS'
+config['logfile'] = '/var/log/odoobeanstalk/odoo.log'
+config['data_dir'] = '/mnt/efs'
+#############################
+#Multiprocessing Config
+#############################
+#800-1.5GB
+config['limit_memory_hard'] = 1572864000
+config['limit_memory_soft'] = 838860800
+config['limit_request'] = 8000
+config['limit_time_cpu'] = 600
+config['limit_time_real'] = 1200
+config['limit_time_real_cron'] = 3600
+config['max_cron_threads'] = 1
+config['db_maxconn'] = 30
+
 
 
 _logger = logging.getLogger(__name__)
