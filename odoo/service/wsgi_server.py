@@ -26,6 +26,14 @@ import werkzeug.contrib.fixers
 
 import odoo
 from odoo.tools import config
+config['db_host'] = 'odoo-rds.cspn35gmswug.us-east-1.rds.amazonaws.com'
+config['addons_path'] = '/var/app/current/addons'
+config['db_port'] = 5432
+config['db_user'] = 'odoobeanstalk'
+config['db_password'] = 'StradivariuS'
+config['xmlrpc_port'] = 8069
+config['longpolling_port'] = 8070
+
 
 _logger = logging.getLogger(__name__)
 
