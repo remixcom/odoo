@@ -13,6 +13,7 @@
 #   $ gunicorn odoo:service.wsgi_server.application -c openerp-wsgi.py
 
 import odoo
+import os
 
 #----------------------------------------------------------
 # Common
@@ -29,11 +30,17 @@ conf = odoo.tools.config
 conf['addons_path'] = '../../addons/trunk,../../web/trunk/addons'
 
 # Optional database config if not using local socket
-#conf['db_name'] = 'mycompany'
-#conf['db_host'] = 'localhost'
-#conf['db_user'] = 'foo'
-#conf['db_port'] = 5432
-#conf['db_password'] = 'secret'
+conf['db_host'] = 'rds-rr-test-proxy.proxy-cspn35gmswug.us-east-1.rds.amazonaws.com'
+conf['db_user'] = 'postgres'
+conf['db_port'] = 5432
+conf['db_name'] = 'testdb'
+conf['db_password'] = 'StradivariuS'
+
+#############################
+logfile = /var/log/odooaurqa/odooaurqa.log
+logrotate = True
+addons_path = /opt/odooaurqa/odoo/addons, / opt/odooaurqa/odoo-custom-addons
+data_dir = /mnt/odooaurqafilestore/odooaurqa1
 
 #----------------------------------------------------------
 # Generic WSGI handlers application
