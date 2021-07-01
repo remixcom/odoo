@@ -35,13 +35,6 @@ conf['db_user'] = 'postgres'
 conf['db_port'] = 5432
 conf['db_name'] = 'testdb'
 conf['db_password'] = 'StradivariuS'
-
-#############################
-logfile = /var/log/odooaurqa/odooaurqa.log
-logrotate = True
-addons_path = /opt/odooaurqa/odoo/addons, / opt/odooaurqa/odoo-custom-addons
-data_dir = /mnt/odooaurqafilestore/odooaurqa1
-
 #----------------------------------------------------------
 # Generic WSGI handlers application
 #----------------------------------------------------------
